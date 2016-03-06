@@ -45,7 +45,6 @@ public class MainMenuView extends View {
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
-
         return false;
     }
 
