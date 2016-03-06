@@ -25,7 +25,7 @@ public class LeavingPlanetEarth {
         
         //create StartProgramViewOrig and display the start program view
         StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView(player);
+        startProgramView.display();
     }
      
     public static Game getCurrentGame() {
