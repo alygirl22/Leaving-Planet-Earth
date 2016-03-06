@@ -9,7 +9,7 @@ package citbyui.cit260.LeavingPlanetEarth.view;
  *
  * @author aly_cheers17
  */
-public class ViewInterface {
+public interface ViewInterface {
     public void display();
     public String getInput();
     public boolean doAction(String value); 
