@@ -12,6 +12,7 @@ public class StartProgramView implements ViewInterface {
     public StartProgramView() {
     }
 
+    @Override
     public void display() {
         this.displayBanner(); // display the introductory banner message
         String playersName = this.getInput();
@@ -34,6 +35,7 @@ public class StartProgramView implements ViewInterface {
         );
     }
 
+    @Override
     public String getInput() {
         boolean valid = false;  // flag variable for accurate input
         String playersName = null;
