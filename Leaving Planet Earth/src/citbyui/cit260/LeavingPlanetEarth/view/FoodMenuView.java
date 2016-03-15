@@ -19,7 +19,8 @@ public class FoodMenuView extends View {
                     + "\nF - Fruit                       "
                     + "\nV - Vegetables              "
                     + "\nW - Water                    "
-                    + "\nR - Return to Game         ");  
+                    + "\nR - Return to Game         "
+                    + "\nT - See total amount of food");  
     }
     
     @Override
