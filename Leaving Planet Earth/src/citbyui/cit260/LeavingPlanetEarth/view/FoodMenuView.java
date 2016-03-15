@@ -40,6 +40,8 @@ public class FoodMenuView extends View {
             break;
         case 'R': // return to game
             return true;
+        case 'T': // get total food
+            this.getFoodAmount();
         default:
             System.out.println("\n*** Invalide selection *** Try again");
         }
@@ -54,5 +56,9 @@ public class FoodMenuView extends View {
     }
     private void displayWater() {
         System.out.println("\n You have 2 gallons of water");
+    }
+
+    private void getFoodAmount() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
