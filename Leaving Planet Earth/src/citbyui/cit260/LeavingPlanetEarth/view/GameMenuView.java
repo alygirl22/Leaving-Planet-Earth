@@ -5,6 +5,9 @@
  */
 package citbyui.cit260.LeavingPlanetEarth.view;
 
+import byui.cit260.LeavingPlanetEarth.control.GameControl;
+import leaving.planet.earth.LeavingPlanetEarth;
+
 /**
  *
  * @author aly_cheers17
@@ -39,7 +42,7 @@ public class GameMenuView {
                 this.constructShelter();
                 break;
             case "I": // view inventory for food
-                this.foodInventory();
+                this.InventoryItem();
                 break;
             case "R": // check progress on rocket ship
                 this.rocketProgress();
@@ -77,6 +80,14 @@ public class GameMenuView {
         }
         return true;
     }
+    private void startNewGame() {
+
+        GameControl.createNewGame(LeavingPlanetEarth.getPlayer());
+
+        // display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayMenu();
+    }
 
     private void viewMap() {
         System.out.println("*** viewMap function called ***");
@@ -84,7 +95,7 @@ public class GameMenuView {
     private void constructShelter() {
         System.out.println("*** constructShelter function called ***");
     }
-    private void foodInventory() {
+    private void InventoryItem() {
         System.out.println("*** foodInventory function called ***");
     }
     private void rocketProgress() {

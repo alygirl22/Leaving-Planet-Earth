@@ -16,6 +16,16 @@ public class Game implements Serializable {
     
     private String time;
     private String people;
+    
+    private Player player;
+    private Map map;
+    private Food food;
+    private Tools tools;
+    private Shelter shelter;
+    private RocketShip rocketship;
+    
+    private InventoryItem[] inventory;
+    private String[] actors;
 
     public Game() {
     }
@@ -38,6 +48,72 @@ public class Game implements Serializable {
         this.people = people;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public Food getFood() {
+        return food;
+    }
+
+    public Tools getTools() {
+        return tools;
+    }
+
+    public Shelter getShelter() {
+        return shelter;
+    }
+
+    public RocketShip getRocketship() {
+        return rocketship;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public void setFood(Food food) {
+        this.food = food;
+    }
+
+    public void setTools(Tools tools) {
+        this.tools = tools;
+    }
+
+    public void setShelter(Shelter shelter) {
+        this.shelter = shelter;
+    }
+
+    public void setRocketship(RocketShip rocketship) {
+        this.rocketship = rocketship;
+    }
+
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public String[] getActors() {
+        return actors;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
+
+    public void setActors(String[] actors) {
+        this.actors = actors;
+    }
+    
+    
+    
     @Override
     public int hashCode() {
         int hash = 3;

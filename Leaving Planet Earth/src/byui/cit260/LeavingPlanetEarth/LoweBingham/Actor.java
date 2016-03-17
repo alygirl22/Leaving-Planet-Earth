@@ -12,79 +12,32 @@ import java.util.Objects;
  *
  * @author Curtis
  */
-public class Actor implements Serializable{
+public enum Actor implements Serializable{
     
-    //class instance variables
-    private String name;
-    private String description;
-    private String currentLocation;
+    Rocket Scientist George("scientist at nasa."),
+    Builder Bob("helps build shelter"),
+    
+    private final String description;
+    private final Point location;
 
-    public Actor() {
+    Actor(String description) {
+        this.description = description;
+        coordinates = new Point(1,1);
     }
     
     
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getCurrentLocation() {
+    public Point getCurrentLocation() {
         return currentLocation;
-    }
-
-    public void setCurrentLocation(String currentLocation) {
-        this.currentLocation = currentLocation;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.name);
-        hash = 97 * hash + Objects.hashCode(this.description);
-        hash = 97 * hash + Objects.hashCode(this.currentLocation);
-        return hash;
     }
 
     @Override
     public String toString() {
         return "Actor{" + "name=" + name + ", description=" + description + ", currentLocation=" + currentLocation + '}';
     }
-    
-    
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Actor other = (Actor) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.currentLocation, other.currentLocation)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
-    
+     
 }

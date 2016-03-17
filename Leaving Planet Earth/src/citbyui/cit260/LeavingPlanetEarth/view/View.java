@@ -1,3 +1,4 @@
+
 package citbyui.cit260.LeavingPlanetEarth.view;
 
 import java.util.Scanner;

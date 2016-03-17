@@ -5,7 +5,9 @@
  */
 package byui.cit260.LeavingPlanetEarth.control;
 
+import byui.cit260.LeavingPlanetEarth.LoweBingham.InventoryItem;
 import byui.cit260.LeavingPlanetEarth.LoweBingham.Player;
+import citbyui.cit260.LeavingPlanetEarth.view.GameMenuView;
 import leaving.planet.earth.LeavingPlanetEarth;
 
 /**
@@ -29,6 +31,28 @@ public class GameControl {
         return player;
     }
     public static void createNewGame(Player player) {
-        System.out.println("\n*** createNewGame stub function called ***");
+    }
+        
+        // create the inventory list and save in the game
+       public static InventoryItem[] createinventoryList() {
+           System.out.println("*** called createInventoryList() in GameControl ***");
+           return null;
+       } 
+        
+        
+        Map map = MapControl.createMap(); // create and intialize new map
+        game.setMap(map); // save map in game
+        
+        RocketShip rocketship = new RocketShip(); //create new RocketShip
+        game.setRocketShip(rocketship); // save RocketShip in game
+        
+        // move actors to starting position in the map
+        MapControl.moveActorsToStartingLocation(map);
+        
+    }
+    private void startNewGame() {
+
+        GameControl.createNewGame(LeavingPlanetEarth.getPlayer());
+           System.out.println("***Start New Game Menu***");
     }
 }

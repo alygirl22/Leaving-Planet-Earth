@@ -10,5 +10,17 @@ package byui.cit260.LeavingPlanetEarth.control;
  * @author aly_cheers17
  */
 public class MapControl {
+    public static Map createMap() {
+        //create the map
+        Map map = new Map(20, 20);
+        
+        //create a list of the different scenes in the game
+        Scene[] scenes = createScenes();
+        
+        //assign the different scenes to locations in the map
+        assignScenesToLocations(map, scenes);
+        
+        return map;
+    }
     
 }
