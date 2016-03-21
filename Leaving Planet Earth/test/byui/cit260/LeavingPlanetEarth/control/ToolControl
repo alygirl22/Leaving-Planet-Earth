@@ -1,0 +1,76 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package byui.cit260.LeavingPlanetEarth.control;
+
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
+/**
+ *
+ * @author aly_cheers17
+ */
+public class ToolControlTest {
+
+    public ToolControlTest() {
+    }
+
+    /**
+     * Test of calcToolAmount method
+     */
+    @Test
+    public void testCalcToolAmount() {
+        System.out.println("calcToolAmount");
+        
+        /********************Test Case #1 ****************/
+        System.out.println("\tTest case #1");
+        
+        // input values for test case 1
+        double drill = 1.0;
+        double hammer = 1.0;
+        double axe = 1.0;
+        double rope = 1.0;
+        double tarp = 1.0;
+        
+        double expResult = 5.0; //expected output returned value
+        
+        //create instance of FoodControl class
+        ToolControl instance = new ToolControl();
+        
+        // call function to run test
+        double result = instance.calcToolAmount(drill, hammer, axe, rope, tarp);
+        
+        //compare expected return value with actual value returned
+        assertEquals(expResult, result, 5.0);
+   
+        
+    }
+
+    /**
+     * Test of testCalcToolAmount method, of class ToolControl.
+     */
+    @Test
+    public void testTestCalcToolAmount() {
+        System.out.println("testCalcToolAmount");
+        ToolControl instance = new ToolControl();
+        instance.testCalcToolAmount();
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getToolAmount method, of class ToolControl.
+     */
+    @Test
+    public void testGetToolAmount() {
+        System.out.println("getToolAmount");
+        String tool = "";
+        int[] tools = null;
+        ToolControl instance = new ToolControl();
+        instance.getToolAmount(tool, tools);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+}
