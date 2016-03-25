@@ -1,12 +1,15 @@
-
 package citbyui.cit260.LeavingPlanetEarth.view;
 
+import byui.cit260.LeavingPlanetEarth.view.ErrorView;
 import java.util.Scanner;
 
 // @author aly_cheers17 
 public abstract class View implements ViewInterface {
 
     protected String displayMessage;
+    
+    protected final BufferedReader keyboard = LeavingPlanetEarth.getInFile();
+    protected final PrintWriter console = LeavingPlanetEarth.getOutFile();
 
     public View() {
     }
@@ -19,6 +22,7 @@ public abstract class View implements ViewInterface {
     public void display() {
         boolean done = false; // set flag to not done
         do {
+            this.console.println(this.displayMessage);
             String value = this.getInput(); // prompt for and get players name
             if (value.toUpperCase().equals("Q")) // user wants to quit
             {
@@ -31,7 +35,6 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput() {
 
-        Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
         String value = null;
 
@@ -40,15 +43,19 @@ public abstract class View implements ViewInterface {
             
             System.out.println("\n" + this.displayMessage);
             // get the value entered from the keyboard
-            value = keyboard.nextLine();
+            value = this.keyboard.readLine();
             value = value.trim();
 
             if (value.length() < 1) { // blank value entered
-                System.out.println("\n*** You must enter a value *** ");
+                ErrorView.display(this.getClass().getName(),
+                                        "You must enter a value.");
                 continue;
             }
             break;
         }
-        return value; //return the name
-    }
+    } catch (Exception e) {
+        ErrorView.display(this.getClass().getName(),
+                                "Error reading input: " + e.getMessage());
+        return null;
+}
 }
