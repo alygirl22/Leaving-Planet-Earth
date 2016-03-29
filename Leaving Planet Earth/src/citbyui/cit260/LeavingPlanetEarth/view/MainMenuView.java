@@ -1,6 +1,9 @@
-package citbyui.cit260.LeavingPlanetEarth.view;
+package byui.cit260.LeavingPlanetEarth.view;
 
 import byui.cit260.LeavingPlanetEarth.control.GameControl;
+import byui.cit260.LeavingPlanetEarth.view.ErrorView;
+import byui.cit260.LeavingPlanetEarth.view.GameMenuView;
+import byui.cit260.LeavingPlanetEarth.view.HelpMenuView;
 import leaving.planet.earth.LeavingPlanetEarth;
 
 // aly_cheers17
@@ -20,7 +23,6 @@ public class MainMenuView extends View {
                 + "\n--------------------------------");
     }
 
-    @Override
     public boolean doAction(String choice) {
 
         choice = choice.toUpperCase(); //convert choice to upper case
@@ -57,8 +59,24 @@ public class MainMenuView extends View {
         gameMenu.displayMenu();
     }
 
-    private void startExistingGame() {
-        System.out.println("*** startExistingGame function called ***");
+    private void startSavedGame() {
+        
+        // prompt for and get the name of the file to save the game in
+        this.console.println("\n\nEnter the file path for file where the game " 
+                                + "is to be saved.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            // start a saved game
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        // display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void displayHelpMenu() {
@@ -67,7 +85,25 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        System.out.println("*** startExistingGame function called ***");
+        // prompt for and get the name of the file to save the game in
+        this.console.println("\n\nEnter the file path for file where the game "
+                                + "is to be saved.");
+        String filePath = this.getInput();
+        
+        try {
+            // save the game to the specified file
+            GameControl.saveGame(LeavingPlanetEarth.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+    }
+
+    private void startExistingGame() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void display() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
