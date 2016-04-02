@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package citbyui.cit260.LeavingPlanetEarth.view;
+package byui.cit260.LeavingPlanetEarth.view;
 
 import java.util.Scanner;
 
@@ -12,6 +12,7 @@ import java.util.Scanner;
  * @author aly_cheers17
  */
 public class BuildRocketView {
+
     private String promptMessage;
 
     public BuildRocketView() {
@@ -20,7 +21,34 @@ public class BuildRocketView {
         // display the banner when view is created
         this.displayRocketExplanation();
     }
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
 
+    public String getPromptMessage() {
+        return promptMessage;
+    }
+
+    public void setPromptMessage(String promptMessage) {
+        this.promptMessage = promptMessage;
+    }
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        BuildRocketView.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        BuildRocketView.inFile = inFile;
+    }
+    
+    
     private void displayBanner() {
 
         System.out.println(
@@ -42,8 +70,9 @@ public class BuildRocketView {
             //prompt for and get player's rocket pieces
             String RocketPieces = this.getRocketPieces();
             if (RocketPieces.toUpperCase().equals("Q")) // user wants to quit
+            {
                 return; // exit the game
-            
+            }
             // do the requested action and display the next view
             done = this.doAction(RocketPieces);
 
@@ -74,28 +103,19 @@ public class BuildRocketView {
 
     private boolean doAction(String RocketPieces) {
 
-        if (RocketPieces.length() < 5 || RocketPieces.length() > 130 ) {
+        if (RocketPieces.length() < 5 || RocketPieces.length() > 130) {
             System.out.println("\nInvalid Rocket Piece number: "
                     + "Rocket Pieces cannot be below 5 or over 130");
             return false;
         }
-
+        return true;
     }
 
     private void displayRocketPiecesExplanation() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private String getRocketPieces() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     private void displayRocketExplanation() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    private String getRocketPieces() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-}
